@@ -1,13 +1,13 @@
 module.exports = {
   routes: [
-    // {
-    //  method: 'GET',
-    //  path: '/view',
-    //  handler: 'view.exampleAction',
-    //  config: {
-    //    policies: [],
-    //    middlewares: [],
-    //  },
-    // },
+    {
+      method: 'POST',
+      path: '/view/:id',
+      handler: 'view.incrementView',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+     },
   ],
 };

@@ -5,11 +5,13 @@
  */
 
 module.exports = {
-  // exampleAction: async (ctx, next) => {
-  //   try {
-  //     ctx.body = 'ok';
-  //   } catch (err) {
-  //     ctx.body = err;
-  //   }
-  // }
+  async incrementView(ctx,next){
+    const {id} = (ctx.request.params)
+    try{
+      const data = await strapi.service("api::view.view").incrementView(id);
+      ctx.body = data;
+    }catch(err){
+      ctx.badRequest("Increment view controller error",{moreDetail:err});
+    }
+  }
 };
