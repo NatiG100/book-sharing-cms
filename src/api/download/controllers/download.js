@@ -5,11 +5,13 @@
  */
 
 module.exports = {
-  // exampleAction: async (ctx, next) => {
-  //   try {
-  //     ctx.body = 'ok';
-  //   } catch (err) {
-  //     ctx.body = err;
-  //   }
-  // }
+  async incrementDownload(ctx,next){
+    const {id} = (ctx.request.params)
+    try{
+      const data = await strapi.service("api::download.download").incrementDownload(id);
+      ctx.body = data;
+    }catch(err){
+      ctx.badRequest("Increment download controller error",{moreDetail:err});
+    }
+  }
 };
