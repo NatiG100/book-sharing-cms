@@ -1,12 +1,14 @@
 module.exports = {
-meilisearch: {
-    config: {
-    books: {
-        settings: {
-        filterableAttributes: ['categories'],
-        searchableAttributes: ['title',"description","author","tags"]
+    meilisearch: {
+        enabled:true,
+        config: {
+            book: {
+                settings: {
+                    filterableAttributes: ['category','author'],
+                    searchableAttributes: ['title',"description","author","tags"],
+                    sortableAttributes:['view','downloads','createdAt']
+                }
+            }
         }
-    }
-    }
-},
+    },
 }
